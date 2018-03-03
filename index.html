@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js vezbanje</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    
+</head>
+<body>
+    <div id="vue-app">
+        <p>Poziv obicne funkcije!</p>
+        <h1>{{greet()}}</h1>
+
+        <p>Poziv funkcije sa parametrom</p>
+        <h2>{{greet2("Stefan")}}</h2>
+
+        <p>Pristup podacima vue instance</p>
+        <h3>Name: {{name}}</h3>
+        <h3>His job is: {{job}}</h3>
+
+        <p>Bind-ovanje podataka vue instance</p>
+        <a v-bind:href="website">His Site!</a> </br>
+        <input type="text" name="text-ime" :value="name">
+
+        <p>Obrada html elementa</p>
+        <p v-html="websiteTag"></p>
+    </div>
+
+    <script src="vezbanjeVue.js"></script>
+</body>
+</html>
