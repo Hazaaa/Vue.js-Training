@@ -40,6 +40,45 @@
         <button v-on:click.once="addYear">Dodaj Godinu</button>
         <p>Danasnja godina je: {{year}}</p>
 
+        <p>Obrada keyboard Evenata</p>
+        <label>Ime:</label>
+        <input type="text" name="text-ime" @keyup.enter="logName">
+        <label>Godine: </label>
+        <input type="text" name="text-godine" @keyup.enter="logAge">
+
+        <p>Uporedo updejtovanje vrednosti (Two way binding)</p>
+        <label>Ime:</label>
+        <input type="text" name="text-ime" v-model="ime">
+        <span>{{ ime }}</span>
+        <label>Godine: </label>
+        <input type="text" name="text-godine" v-model="godina">
+        <span>{{ godina }}</span>
+
+        <p>Computed Properties</p>
+        <button @click="a++">Add A</button>
+        <button @click="b++">Add B</button>
+        <p>A = {{ a }}</p>
+        <p>B = {{ b }}</p>
+        <p>Nesto + A = {{ addToA }}</p>
+        <p>Nesto + B = {{ addToB }}</p>
+
+        <p>Dinamicki css</p>
+        <!--Ako je vrednost abailable true onda je klasa available,
+        tu moze da bude i neka lista klasi tako da se menja vise klasi-->
+        <!--Znak ! komplementira trenutnu vrednost atributa -->
+        <div @click="available = !available" :class="{available: available}">
+            <span>Nesto</span>
+        </div>
+        <!--Da ne bi pisali listu klasa i za svaku da proveravamo onda
+        saljemo objekat koji ce da postavi klasu elementu-->
+        <button @click="nearby=!nearby">Toggle Nearby</button>
+        <button @click="available=!available">Toogle Available</button>
+        <!--compClasses je computed property koji vraca objekat sa listom
+        klasa koje mogu da se postave ovom divu -->
+        <div :class="compClasses">
+            <span>Nesto2</span>
+        </div>
+
     </div>
 
     <script src="vezbanjeVue.js"></script>

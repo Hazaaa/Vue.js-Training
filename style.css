@@ -4,3 +4,15 @@
     text-align: center;
     border: 1px solid #333333;
 }
+
+.available span {
+    background: chartreuse;
+}
+
+.nearby span {
+    background: red;
+}
+
+.available.nearby span {
+    background: purple;
+}

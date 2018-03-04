@@ -12,7 +12,14 @@ new Vue({
         websiteTag: "<a href='https://www.facebook.com/'>Vue Website Tag</a>",
         year: 2018,
         x: 0,  //pratimo koordinate misa kroz canvas
-        y: 0
+        y: 0,
+        ime: "",    //vrednosti za two-way data binding
+        godina: "",
+        a: 0,       //vrednosti za computed properties
+        b: 0,
+        nesto: 20,
+        available: false, //vrednosti za dinamicki css
+        nearby: false
     },
 
     //Ovo je property za metode
@@ -41,6 +48,32 @@ new Vue({
         updateXY: function(event) {
             this.x = event.offsetX;
             this.y = event.offsetY;
+        },
+
+        logName: function() {
+            
+        },
+
+        logAge: function() {
+            alert("You entered your age!");
+        }
+    },
+
+    computed: {
+        addToA: function() {
+            return this.a + this.nesto;
+        },
+
+        addToB: function() {
+            return this.b + this.nesto;
+        },
+
+        compClasses: function() {
+            return {
+                available: this.available,
+                nearby: this.nearby
+            }
         }
     }
+
 });
