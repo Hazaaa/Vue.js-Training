@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vue.js vezbanje</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="vue-app">
@@ -26,6 +26,20 @@
 
         <p>Obrada html elementa</p>
         <p v-html="websiteTag"></p>
+
+        <p>Obrada evenata u Vue.js</p>
+        <button v-on:click="addYear">Dodaj Godinu</button>
+        <button v-on:click="decreaseYear">Smanji Godinu</button>
+        <button v-on:dblclick="addYear">Double Click Dodaj Godinu</button>
+        <p>Danasnja godina je: {{year}}</p>
+
+        <p>Pracenje kretanja misa</p>
+        <div id="canvas" @mousemove="updateXY"> {{x}}, {{y}} </div>
+
+        <p>Pokretanje eventa samo jednom</p>
+        <button v-on:click.once="addYear">Dodaj Godinu</button>
+        <p>Danasnja godina je: {{year}}</p>
+
     </div>
 
     <script src="vezbanjeVue.js"></script>

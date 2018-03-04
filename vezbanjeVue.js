@@ -9,7 +9,10 @@ new Vue({
         name: 'John Doe',
         job: "Software Engineer",
         website: "https://www.facebook.com/",
-        websiteTag: "<a href='https://www.facebook.com/'>Vue Website Tag</a>"
+        websiteTag: "<a href='https://www.facebook.com/'>Vue Website Tag</a>",
+        year: 2018,
+        x: 0,  //pratimo koordinate misa kroz canvas
+        y: 0
     },
 
     //Ovo je property za metode
@@ -25,6 +28,19 @@ new Vue({
             //this.ime propertija bez potrebe da se dalje navodi data i slicno
             this.name = ime;
             return "Hello " + ime;
+        },
+
+        addYear: function() {
+            this.year++;
+        },
+
+        decreaseYear: function() {
+            this.year--;
+        },
+
+        updateXY: function(event) {
+            this.x = event.offsetX;
+            this.y = event.offsetY;
         }
     }
 });
