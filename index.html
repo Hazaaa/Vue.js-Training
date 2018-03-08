@@ -9,60 +9,77 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <p id="naslovi">Vise Vue.js instanci!</p>
+    <div id="vue-app-one">
+        <h3>{{ title }}</h3>
+        <p> {{ greet }} </p>
+        <greeting></greeting>
+    </div>
+    <div id="vue-app-two">
+        <h3>{{ title }}</h3>
+        <p> {{ greet }} </p>
+        <button @click="changeTitle">Change title in app one!</button>
+        <greeting></greeting>
+    </div><hr>
+
     <div id="vue-app">
-        <p>Poziv obicne funkcije!</p>
-        <h1>{{greet()}}</h1>
 
-        <p>Poziv funkcije sa parametrom</p>
-        <h2>{{greet2("Stefan")}}</h2>
 
-        <p>Pristup podacima vue instance</p>
+
+        <p id="naslovi">Poziv obicne funkcije!</p>
+        <h1>{{greet()}}</h1> <hr>
+
+        <p id="naslovi">Poziv funkcije sa parametrom</p>
+        <h2>{{greet2("Stefan")}}</h2><hr>
+
+        <p id="naslovi">Pristup podacima vue instance</p>
         <h3>Name: {{name}}</h3>
-        <h3>His job is: {{job}}</h3>
+        <h3>His job is: {{job}}</h3><hr>
 
-        <p>Bind-ovanje podataka vue instance</p>
+        <p id="naslovi">Bind-ovanje podataka vue instance</p>
         <a v-bind:href="website">His Site!</a> </br>
-        <input type="text" name="text-ime" :value="name">
+        <input type="text" name="text-ime" :value="name"><hr>
 
-        <p>Obrada html elementa</p>
-        <p v-html="websiteTag"></p>
+        <p id="naslovi">Obrada html elementa</p>
+        <p v-html="websiteTag"></p><hr>
 
-        <p>Obrada evenata u Vue.js</p>
+        <p id="naslovi">Obrada evenata u Vue.js</p>
         <button v-on:click="addYear">Dodaj Godinu</button>
         <button v-on:click="decreaseYear">Smanji Godinu</button>
         <button v-on:dblclick="addYear">Double Click Dodaj Godinu</button>
-        <p>Danasnja godina je: {{year}}</p>
+        <p>Danasnja godina je: {{year}}</p><hr>
 
-        <p>Pracenje kretanja misa</p>
-        <div id="canvas" @mousemove="updateXY"> {{x}}, {{y}} </div>
+        <p id="naslovi">Pracenje kretanja misa</p>
+        <div id="canvas" @mousemove="updateXY"> {{x}}, {{y}} </div><hr>
 
-        <p>Pokretanje eventa samo jednom</p>
+        <p id="naslovi">Pokretanje eventa samo jednom</p>
         <button v-on:click.once="addYear">Dodaj Godinu</button>
-        <p>Danasnja godina je: {{year}}</p>
+        <p>Danasnja godina je: {{year}}</p><hr>
 
-        <p>Obrada keyboard Evenata</p>
+        <p id="naslovi">Obrada keyboard Evenata</p>
         <label>Ime:</label>
         <input type="text" name="text-ime" @keyup.enter="logName">
         <label>Godine: </label>
-        <input type="text" name="text-godine" @keyup.enter="logAge">
+        <input type="text" name="text-godine" @keyup.enter="logAge"><hr>
 
-        <p>Uporedo updejtovanje vrednosti (Two way binding)</p>
+        <p id="naslovi">Uporedo updejtovanje vrednosti (Two way binding)</p>
         <label>Ime:</label>
         <input type="text" name="text-ime" v-model="ime">
         <span>{{ ime }}</span>
         <label>Godine: </label>
         <input type="text" name="text-godine" v-model="godina">
-        <span>{{ godina }}</span>
+        <span>{{ godina }}</span><hr>
 
-        <p>Computed Properties</p>
+        <p id="naslovi">Computed Properties</p>
         <button @click="a++">Add A</button>
         <button @click="b++">Add B</button>
         <p>A = {{ a }}</p>
         <p>B = {{ b }}</p>
         <p>Nesto + A = {{ addToA }}</p>
-        <p>Nesto + B = {{ addToB }}</p>
+        <p>Nesto + B = {{ addToB }}</p><hr>
 
-        <p>Dinamicki css</p>
+        <p id="naslovi">Dinamicki css</p>
         <!--Ako je vrednost abailable true onda je klasa available,
         tu moze da bude i neka lista klasi tako da se menja vise klasi-->
         <!--Znak ! komplementira trenutnu vrednost atributa -->
@@ -77,10 +94,49 @@
         klasa koje mogu da se postave ovom divu -->
         <div :class="compClasses">
             <span>Nesto2</span>
+        </div><hr>
+
+        <p id="naslovi">Uslovi i SHOW!</p>
+        <button @click="toogle = !toogle">Promeni uslov</button>
+        <p v-if="toogle">Uslov je true!!!</p>
+        <p v-else-if="toogle2">Drugi uslov je true!!!</p>
+        <p v-else>Prodje sve dovde!</p>
+        <p v-show="toogle">Pogledaj u inspect za v-show ovaj paragraf!</p><hr>
+
+        <p id="naslovi">For petlja!</p>
+        <ul>
+            <li v-for="(osoba,index) in niz1">{{index+1}}.{{ osoba }}</li>
+        </ul>
+        <ul>
+            <li v-for="objekat in niz2">{{objekat['ime']}} - {{objekat.godina}}</li>
+        </ul>
+        <template v-for="objekat in niz2">
+            <template v-for="(val,key) in objekat">
+                <p>{{ key}} - {{ val }}</p>
+            </template>
+        </template><hr>
+
+        <p id="naslovi">Igrica!</p>
+        <!-- slika vrece -->
+        <div id="bag" :class="{ burst: ended }"></div>
+
+        <!-- helti -->
+        <div id="bag-health">
+            <div :style="{ width: health + '%'}"></div>
         </div>
 
-    </div>
+        <!-- kontrole -->
+        <div id="controls">
+            <button @click="punch" v-show="!ended">Punch</button>
+            <button @click="restart">Restart</button>
+        </div><hr>
 
+        <p id="naslovi">Refs</p>
+        <p>Unesite vase ime!</p>
+        <input type="text" name="ime-input" ref="input">
+        <button @click="submitFunction">Submit</button>
+        <p v-show="refOutput !== ''">Vase ime je {{refOutput}}</p><hr>
+    </div>
     <script src="vezbanjeVue.js"></script>
 </body>
 </html>

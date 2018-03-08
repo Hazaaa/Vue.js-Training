@@ -6,7 +6,7 @@
 }
 
 .available span {
-    background: chartreuse;
+    background: rgb(159, 248, 69);
 }
 
 .nearby span {
@@ -15,4 +15,38 @@
 
 .available.nearby span {
     background: purple;
+}
+
+p#naslovi {
+    font-family: serif;
+    font-size: x-large;
+    color: tomato;
+}
+
+#bag {
+    width: 200px;
+    height: 500px;
+    background: url(/img/bag.png) center no-repeat;
+    background-size: 80%;
+}
+
+#bag-health {
+    width: 200px;
+    border: 2px solid black;
+}
+
+#bag-health div {
+    height: 20px;
+    background: crimson;
+}
+
+#controls {
+    width:  120px;
+    margin-top: 10px;
+    margin-left: 39px;
+}
+
+#bag.burst {
+    background: url(/img/bag-burst.png) center no-repeat;
+    background-size: 80%;
 }

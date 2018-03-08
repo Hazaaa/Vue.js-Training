@@ -19,7 +19,18 @@ new Vue({
         b: 0,
         nesto: 20,
         available: false, //vrednosti za dinamicki css
-        nearby: false
+        nearby: false,
+        toogle: false,    //vrednosti za if uslov
+        toogle2: true,
+        niz1: ['Stefan', 'Steva','Pinki'],   //vrednosti za for petlju
+        niz2: [
+            {ime: 'Stefan', godina: 21},
+            {ime: 'Marko', godina: 22},
+            {ime: 'Djole', godina: 20}
+        ],
+        health: 100,    //vrednosti za igricu
+        ended: false,
+        refOutput: ''  //vrednost za ref
     },
 
     //Ovo je property za metode
@@ -56,6 +67,24 @@ new Vue({
 
         logAge: function() {
             alert("You entered your age!");
+        },
+
+        //funkcije za igricu
+        punch: function() {
+            this.health -= 10;
+            if( this.health <= 0) {
+                this.ended = true;
+            }
+        },
+
+        restart: function() {
+            this.health = 100;
+            this.ended = false;
+        },
+
+        //funkcija za ref
+        submitFunction: function() {
+            this.refOutput = this.$refs.input.value;
         }
     },
 
@@ -76,4 +105,53 @@ new Vue({
         }
     }
 
+});
+
+//Vue.js komponenta
+Vue.component('greeting', {
+    template: '<p>Hello there, i am re-usable component, {{ message }}. <button @click="changeMessage">Promeni</button></p>',
+    data: function() {
+        return {
+            message: 'Ja sam u komponenti!'
+        }
+    },
+    methods: {
+        changeMessage: function() {
+            this.message = 'Promenili smo poruku!'
+        }
+    }
+});
+
+//Dve razlicite Vue.js instance za kontrolisanje razlicitih delova
+//Dva razlicita div-a obuhvataju i oni moraju da budu van jedan drugog
+var one = new Vue({
+    el: '#vue-app-one',
+    data: {
+        title: 'Vue-app One'
+    },
+    methods: {
+
+    },
+    computed: {
+        greet: function() {
+            return 'Hello from instance one!';
+        }
+    }
+});
+
+var two = new Vue({
+    el: '#vue-app-two',
+    data: {
+        title: 'Vue-app Two'
+    },
+    methods: {
+        changeTitle: function() {
+            one.title = "We changed title from app two!";
+        }
+    },
+    computed: {
+        greet: function() {
+            return 'Hello from instance two!';
+        }
+    }
 });
