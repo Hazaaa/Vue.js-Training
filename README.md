@@ -1,4 +1,3 @@
 # Vue.js-Vezbanje
-Vue.js Trening
 
-Learning basic in Vue.js framework!
+Baby steps with Vue.js framework :)
